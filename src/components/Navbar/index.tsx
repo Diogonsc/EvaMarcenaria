@@ -184,79 +184,82 @@ export function Navbar() {
             
             {/* Conteúdo do Menu */}
             <div className="flex flex-col h-full bg-white">
-              {/* Navegação Mobile */}
-              <nav className="flex-1 p-4">
-                <div className="space-y-1">
-                  <NavLinks
-                    className="flex items-center w-full p-3 text-primary text-base font-medium rounded-lg hover:bg-primary/10 transition-colors duration-200 border border-transparent hover:border-primary/20 bg-white"
-                    onClick={() => setIsMenuOpen(false)}
-                  />
-                </div>
-              </nav>
+              {/* Container com Scroll */}
+              <div className="flex-1 overflow-y-auto mobile-menu-scroll">
+                {/* Navegação Mobile */}
+                <nav className="p-4">
+                  <div className="space-y-1">
+                    <NavLinks
+                      className="flex items-center w-full p-3 text-primary text-base font-medium rounded-lg hover:bg-primary/10 transition-colors duration-200 border border-transparent hover:border-primary/20 bg-white"
+                      onClick={() => setIsMenuOpen(false)}
+                    />
+                  </div>
+                </nav>
 
-              {/* Informações de Contato */}
-              <div className="p-4 bg-gray-50 border-t border-primary/10">
-                <h3 className="text-base font-semibold text-primary mb-3 font-montserrat">
-                  Informações de Contato
-                </h3>
-                <div className="space-y-2">
-                  {contactInfo.map((info, index) => (
-                    <a
-                      key={index}
-                      href={info.href}
-                      className="flex items-center p-3 rounded-lg bg-white hover:bg-gray-100 transition-colors duration-200 group shadow-sm"
-                    >
-                      <div className="p-2 rounded-full bg-primary/20 text-primary mr-3 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                        {info.icon}
-                      </div>
-                      <div>
-                        <p className="text-sm font-medium text-primary">{info.label}</p>
-                        <p className="text-xs text-gray-600">{info.value}</p>
-                      </div>
-                    </a>
-                  ))}
+                {/* Informações de Contato */}
+                <div className="p-4 bg-gray-50 border-t border-primary/10">
+                  <h3 className="text-base font-semibold text-primary mb-3 font-montserrat">
+                    Informações de Contato
+                  </h3>
+                  <div className="space-y-2">
+                    {contactInfo.map((info, index) => (
+                      <a
+                        key={index}
+                        href={info.href}
+                        className="flex items-center p-3 rounded-lg bg-white hover:bg-gray-100 transition-colors duration-200 group shadow-sm"
+                      >
+                        <div className="p-2 rounded-full bg-primary/20 text-primary mr-3 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                          {info.icon}
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium text-primary">{info.label}</p>
+                          <p className="text-xs text-gray-600">{info.value}</p>
+                        </div>
+                      </a>
+                    ))}
+                  </div>
                 </div>
-              </div>
 
-              {/* Social Media Mobile */}
-              <div className="p-4 bg-primary/5 border-t border-primary/10">
-                <h3 className="text-base font-semibold text-primary mb-3 font-montserrat">
-                  Redes Sociais
-                </h3>
-                <div className="flex items-center justify-between">
-                  <SocialMedia
-                    items={[
-                      {
-                        icon: <FaFacebookF />,
-                        link: 'https://www.facebook.com/eva.marcenaria',
-                      },
-                      {
-                        icon: <FaInstagram />,
-                        link: 'https://www.instagram.com/eva.marcenaria',
-                      },
-                      {
-                        icon: <FaWhatsapp />,
-                        link: 'https://wa.me/5511999999999',
-                      },
-                    ]}
-                    direction="row"
-                    gap={4}
-                    size="lg"
-                    className="text-primary"
-                    isScrolled={true}
-                  />
+                {/* Social Media Mobile */}
+                <div className="p-4 bg-primary/5 border-t border-primary/10">
+                  <h3 className="text-base font-semibold text-primary mb-3 font-montserrat">
+                    Redes Sociais
+                  </h3>
+                  <div className="flex items-center justify-between">
+                    <SocialMedia
+                      items={[
+                        {
+                          icon: <FaFacebookF />,
+                          link: 'https://www.facebook.com/eva.marcenaria',
+                        },
+                        {
+                          icon: <FaInstagram />,
+                          link: 'https://www.instagram.com/eva.marcenaria',
+                        },
+                        {
+                          icon: <FaWhatsapp />,
+                          link: 'https://wa.me/5511999999999',
+                        },
+                      ]}
+                      direction="row"
+                      gap={4}
+                      size="lg"
+                      className="text-primary"
+                      isScrolled={true}
+                    />
+                  </div>
+                  
+                  {/* Botão de WhatsApp Flutuante */}
+                  <a
+                    href="https://wa.me/5511999999999"
+                    className="mt-4 w-full flex items-center justify-center gap-2 p-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors duration-200 shadow-lg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaWhatsapp className="w-5 h-5" />
+                    Fale Conosco no WhatsApp
+                  </a>
                 </div>
-                
-                {/* Botão de WhatsApp Flutuante */}
-                <a
-                  href="https://wa.me/5511999999999"
-                  className="mt-4 w-full flex items-center justify-center gap-2 p-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors duration-200 shadow-lg"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaWhatsapp className="w-5 h-5" />
-                  Fale Conosco no WhatsApp
-                </a>
               </div>
             </div>
           </SheetContent>

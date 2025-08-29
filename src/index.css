@@ -434,3 +434,21 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary);
 }
+
+/* Scrollbar para o menu mobile */
+.mobile-menu-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.mobile-menu-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.mobile-menu-scroll::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+.mobile-menu-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
