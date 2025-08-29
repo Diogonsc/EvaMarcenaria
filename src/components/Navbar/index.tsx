@@ -156,7 +156,7 @@ export function Navbar() {
             hideCloseButton={true}
           >
             {/* Header do Menu */}
-            <SheetHeader className="bg-gradient-to-r from-primary to-primary/80 p-6 text-white relative">
+            <SheetHeader className="bg-gradient-to-r from-primary to-primary/80 p-4 text-white relative">
               <div className="flex items-center justify-between">
                 <SheetTitle className="text-left">
                   <picture>
@@ -164,7 +164,7 @@ export function Navbar() {
                     <img
                       src={LogoEvaBege}
                       alt="Eva Marcenaria"
-                      className="w-16 h-16 object-contain"
+                      className="w-12 h-12 object-contain"
                     />
                   </picture>
                 </SheetTitle>
@@ -173,20 +173,20 @@ export function Navbar() {
                   className="p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors duration-200"
                   aria-label="Fechar menu"
                 >
-                  <FaTimes className="w-5 h-5" />
+                  <FaTimes className="w-4 h-4" />
                 </button>
               </div>
-              <div className="mt-4">
-                <h2 className="text-xl font-semibold font-montserrat">Menu de Navegação</h2>
-                <p className="text-sm opacity-90 mt-1">Explore nossos serviços</p>
+              <div className="mt-2">
+                <h2 className="text-lg font-semibold font-montserrat">Menu de Navegação</h2>
+                <p className="text-xs opacity-90 mt-1">Explore nossos serviços</p>
               </div>
             </SheetHeader>
             
             {/* Conteúdo do Menu */}
             <div className="flex flex-col h-full bg-white">
               {/* Navegação Mobile */}
-              <nav className="flex-1 p-6">
-                <div className="space-y-2">
+              <nav className="flex-1 p-4">
+                <div className="space-y-1">
                   <NavLinks
                     className="flex items-center w-full p-3 text-primary text-base font-medium rounded-lg hover:bg-primary/10 transition-colors duration-200 border border-transparent hover:border-primary/20 bg-white"
                     onClick={() => setIsMenuOpen(false)}
@@ -195,11 +195,11 @@ export function Navbar() {
               </nav>
 
               {/* Informações de Contato */}
-              <div className="p-6 bg-gray-50 border-t border-primary/10">
-                <h3 className="text-lg font-semibold text-primary mb-4 font-montserrat">
+              <div className="p-4 bg-gray-50 border-t border-primary/10">
+                <h3 className="text-base font-semibold text-primary mb-3 font-montserrat">
                   Informações de Contato
                 </h3>
-                <div className="space-y-3">
+                <div className="space-y-2">
                   {contactInfo.map((info, index) => (
                     <a
                       key={index}
@@ -219,8 +219,8 @@ export function Navbar() {
               </div>
 
               {/* Social Media Mobile */}
-              <div className="p-6 bg-primary/5 border-t border-primary/10">
-                <h3 className="text-lg font-semibold text-primary mb-4 font-montserrat">
+              <div className="p-4 bg-primary/5 border-t border-primary/10">
+                <h3 className="text-base font-semibold text-primary mb-3 font-montserrat">
                   Redes Sociais
                 </h3>
                 <div className="flex items-center justify-between">
