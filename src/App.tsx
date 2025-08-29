@@ -5,6 +5,8 @@ import { Preloader } from './components/ui/preloader'
 import WhatsAppButton from './components/WhatsAppButton'
 import BackToTop from './components/BackToTop'
 import { Footer } from './components/Footer'
+import LoadingScreen from './components/LoadingScreen'
+import { useLoadingState } from './hooks/useLoadingState'
 
 // Configuração das rotas para preload
 const routes = [
@@ -16,8 +18,21 @@ const routes = [
 ]
 
 function App() {
+  const { isLoading, handleLoadingComplete } = useLoadingState({
+    initialLoadingTime: 3000,
+    minDisplayTime: 2000,
+    onLoadingComplete: () => {
+      console.log('Loading completed - Application ready!');
+    }
+  });
+
   return (
     <ErrorBoundary>
+      <LoadingScreen 
+        isLoading={isLoading} 
+        onLoadingComplete={handleLoadingComplete}
+        minDisplayTime={2000}
+      />
       <div className="w-full bg-gray-50">
         <Navbar />
         <main className="w-full main-content">
