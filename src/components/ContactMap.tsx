@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { MapPin, Phone, Mail, Clock, CheckCircle, AlertCircle } from 'lucide-react';
 import googlemapsIcon from '@/assets/googlemaps.webp';
 import wazeIcon from '@/assets/waze.webp';
@@ -128,9 +128,7 @@ export const ContactMap: React.FC = () => {
     }
   };
 
-  const handleMapClick = () => {
-    window.open('https://maps.google.com/maps?q=Av.+das+Américas+18500+-+Sala+507+UpRise+Residencial+%26+Comercial,+Rio+de+Janeiro+-+RJ', '_blank');
-  };
+
 
   const handleGoogleMapsClick = () => {
     window.open('https://maps.google.com/maps?q=Av.+das+Américas+18500+-+Sala+507+UpRise+Residencial+%26+Comercial,+Rio+de+Janeiro+-+RJ', '_blank');

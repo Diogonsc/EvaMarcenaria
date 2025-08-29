@@ -18,6 +18,7 @@ const About = lazy(createPageImport('../pages/About', 'About'))
 const Products = lazy(createPageImport('../pages/Products', 'Products'))
 const Contact = lazy(createPageImport('../pages/Contact', 'Contact'))
 const WorkWithUs = lazy(createPageImport('../pages/WorkWithUs', 'WorkWithUs'))
+const NotFound = lazy(createPageImport('../pages/NotFound', 'NotFound'))
 
 export function AppRoutes() {
   return (
@@ -28,6 +29,7 @@ export function AppRoutes() {
         <Route path="/products" element={<Products />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/work-with-us" element={<WorkWithUs />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
   )
