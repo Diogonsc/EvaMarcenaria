@@ -2,9 +2,9 @@ import LogoEva from '@/assets/logo-marrom-eva.webp'
 import LogoEvaBege from '@/assets/logo-bege-eva.webp'
 import { Link } from 'react-router-dom'
 import { SocialMedia } from '../SocialMedia'
-import { FaFacebookF, FaInstagram, FaWhatsapp } from 'react-icons/fa'
+import { FaFacebookF, FaInstagram, FaWhatsapp, FaHome, FaInfoCircle, FaBox, FaPhone, FaBriefcase, FaTimes } from 'react-icons/fa'
 import { useScrollEffect } from '../../hooks/useScrollEffect'
-import { Menu, X, Phone, Mail, MapPin } from 'lucide-react'
+import { Menu, Phone, Mail, MapPin } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import {
   Sheet,
@@ -19,11 +19,11 @@ export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const navItems = [
-    { to: '/', label: 'Home', icon: '🏠' },
-    { to: '/about', label: 'Sobre Nós', icon: 'ℹ️' },
-    { to: '/products', label: 'Produtos', icon: '🛋️' },
-    { to: '/contact', label: 'Contato', icon: '📞' },
-    { to: '/work-with-us', label: 'Trabalhe Conosco', icon: '💼' },
+    { to: '/', label: 'Home', icon: <FaHome className="w-5 h-5" /> },
+    { to: '/about', label: 'Sobre Nós', icon: <FaInfoCircle className="w-5 h-5" /> },
+    { to: '/products', label: 'Produtos', icon: <FaBox className="w-5 h-5" /> },
+    { to: '/contact', label: 'Contato', icon: <FaPhone className="w-5 h-5" /> },
+    { to: '/work-with-us', label: 'Trabalhe Conosco', icon: <FaBriefcase className="w-5 h-5" /> },
   ]
 
   const contactInfo = [
@@ -59,7 +59,7 @@ export function Navbar() {
             animationDelay: `${index * 100}ms`
           }}
         >
-          <span className="text-lg mr-3">{item.icon}</span>
+          <span className="mr-3 text-primary">{item.icon}</span>
           {item.label}
         </Link>
       ))}
@@ -141,11 +141,11 @@ export function Navbar() {
         <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
           <SheetTrigger asChild>
             <button
-                                  className={`relative p-3 rounded-full transition-all duration-300 mobile-menu-button ${
-                      isScrolled 
-                        ? 'text-primary hover:bg-primary/10 hover:scale-110' 
-                        : 'text-accent hover:bg-accent/10 hover:scale-110'
-                    }`}
+              className={`relative p-3 rounded-full transition-all duration-300 mobile-menu-button ${
+                isScrolled 
+                  ? 'text-primary hover:bg-primary/10 hover:scale-110' 
+                  : 'text-accent hover:bg-accent/10 hover:scale-110'
+              }`}
               aria-label="Abrir menu de navegação"
             >
               <Menu className="w-6 h-6" />
@@ -155,12 +155,13 @@ export function Navbar() {
           
           <SheetContent 
             side="right" 
-            className="w-full max-w-[350px] bg-gradient-to-b from-background via-bg-section to-bg-header border-l-2 border-primary/20 p-0 overflow-hidden mobile-menu-enter"
+            className="w-full max-w-[350px] bg-white border-l-2 border-primary/20 p-0 overflow-hidden mobile-menu-enter"
+            hideCloseButton={true}
           >
             {/* Header do Menu */}
-            <SheetHeader className="bg-gradient-to-r from-primary to-primary/80 p-6 text-white">
-              <SheetTitle className="text-left">
-                <div className="flex items-center justify-between">
+            <SheetHeader className="bg-gradient-to-r from-primary to-primary/80 p-6 text-white relative">
+              <div className="flex items-center justify-between">
+                <SheetTitle className="text-left">
                   <picture>
                     <source srcSet={LogoEvaBege} type="image/png" />
                     <img
@@ -169,35 +170,35 @@ export function Navbar() {
                       className="w-16 h-16 object-contain"
                     />
                   </picture>
-                  <button
-                    onClick={() => setIsMenuOpen(false)}
-                    className="p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors duration-200"
-                    aria-label="Fechar menu"
-                  >
-                    <X className="w-5 h-5" />
-                  </button>
-                </div>
-                <div className="mt-4">
-                  <h2 className="text-xl font-semibold font-montserrat">Menu de Navegação</h2>
-                  <p className="text-sm opacity-90 mt-1">Explore nossos serviços</p>
-                </div>
-              </SheetTitle>
+                </SheetTitle>
+                <button
+                  onClick={() => setIsMenuOpen(false)}
+                  className="p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors duration-200"
+                  aria-label="Fechar menu"
+                >
+                  <FaTimes className="w-5 h-5" />
+                </button>
+              </div>
+              <div className="mt-4">
+                <h2 className="text-xl font-semibold font-montserrat">Menu de Navegação</h2>
+                <p className="text-sm opacity-90 mt-1">Explore nossos serviços</p>
+              </div>
             </SheetHeader>
             
             {/* Conteúdo do Menu */}
-            <div className="flex flex-col h-full">
+            <div className="flex flex-col h-full bg-white">
               {/* Navegação Mobile */}
               <nav className="flex-1 p-6">
                 <div className="space-y-2">
                   <NavLinks
-                    className="flex items-center w-full p-4 text-primary text-lg font-medium rounded-xl hover:bg-primary/10 hover:scale-105 transition-all duration-300 border border-transparent hover:border-primary/20 mobile-menu-item mobile-menu-hover mobile-menu-item-enter"
+                    className="flex items-center w-full p-4 text-primary text-lg font-medium rounded-xl hover:bg-primary/10 hover:scale-105 transition-all duration-300 border border-transparent hover:border-primary/20 mobile-menu-item mobile-menu-hover mobile-menu-item-enter bg-white"
                     onClick={() => setIsMenuOpen(false)}
                   />
                 </div>
               </nav>
 
               {/* Informações de Contato */}
-              <div className="p-6 bg-gradient-to-r from-bg-section to-bg-header border-t border-primary/10">
+              <div className="p-6 bg-gray-50 border-t border-primary/10">
                 <h3 className="text-lg font-semibold text-primary mb-4 font-montserrat">
                   Informações de Contato
                 </h3>
@@ -206,7 +207,7 @@ export function Navbar() {
                     <a
                       key={index}
                       href={info.href}
-                      className="flex items-center p-3 rounded-lg bg-white/50 hover:bg-white/70 transition-all duration-300 hover:scale-105 group"
+                      className="flex items-center p-3 rounded-lg bg-white hover:bg-gray-100 transition-all duration-300 hover:scale-105 group shadow-sm"
                     >
                       <div className="p-2 rounded-full bg-primary/20 text-primary mr-3 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                         {info.icon}
@@ -221,7 +222,7 @@ export function Navbar() {
               </div>
 
               {/* Social Media Mobile */}
-              <div className="p-6 bg-gradient-to-r from-primary/10 to-accent/10 border-t border-primary/10">
+              <div className="p-6 bg-primary/5 border-t border-primary/10">
                 <h3 className="text-lg font-semibold text-primary mb-4 font-montserrat">
                   Redes Sociais
                 </h3>
