@@ -19,8 +19,8 @@ export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const navItems = [
-    { to: '/', label: 'Home' },
-    { to: '/about', label: 'Sobre Nós' },
+    { to: '/', label: 'Início' },
+    { to: '/about', label: 'Sobre' },
     { to: '/products', label: 'Produtos' },
     { to: '/contact', label: 'Contato' },
     { to: '/work-with-us', label: 'Trabalhe Conosco' },
@@ -30,19 +30,19 @@ export function Navbar() {
     {
       icon: <Phone className="w-4 h-4" />,
       label: 'Telefone',
-      value: '(11) 99999-9999',
-      href: 'tel:+5511999999999'
+      value: '(21) 4101-3747',
+      href: 'tel:+552141013747'
     },
     {
       icon: <Mail className="w-4 h-4" />,
       label: 'Email',
-      value: 'contato@evamarcenaria.com',
-      href: 'mailto:contato@evamarcenaria.com'
+      value: 'eva@evamarcenaria.com.br',
+      href: 'mailto:eva@evamarcenaria.com.br'
     },
     {
       icon: <MapPin className="w-4 h-4" />,
       label: 'Endereço',
-      value: 'São Paulo, SP',
+      value: 'Rio de Janeiro, RJ',
       href: '#'
     }
   ]
@@ -237,7 +237,7 @@ export function Navbar() {
                         },
                         {
                           icon: <FaWhatsapp />,
-                          link: 'https://wa.me/5511999999999',
+                          link: 'https://wa.me/552141013747',
                         },
                       ]}
                       direction="row"
@@ -250,7 +250,7 @@ export function Navbar() {
                   
                   {/* Botão de WhatsApp Flutuante */}
                   <a
-                    href="https://wa.me/5511999999999"
+                    href="https://wa.me/552141013747"
                     className="mt-4 w-full flex items-center justify-center gap-2 p-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors duration-200 shadow-lg"
                     target="_blank"
                     rel="noopener noreferrer"

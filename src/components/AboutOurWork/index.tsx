@@ -72,7 +72,7 @@ export function AboutOurWork() {
 				<div className="max-w-7xl mx-auto">
 					{/* Título da seção */}
 					<div className="text-center mb-16 animate-fade-in-up">
-						<h3 className="text-2xl lg:text-3xl font-bold text-[var(--primary)] mb-4">
+						<h3 className="text-2xl md:text-4xl text-primary mb-4 leading-tight hero-title">
 							Nossos Diferenciais
 						</h3>
 						<div className="w-24 h-1 bg-[var(--primary)] mx-auto rounded-full"></div>

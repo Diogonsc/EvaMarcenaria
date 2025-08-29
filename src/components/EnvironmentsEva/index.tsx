@@ -41,8 +41,8 @@ export function EnvironmentsEva() {
 			<div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				{/* Header Section */}
 				<div className="text-center mb-16">
-					<h2 className="text-4xl md:text-5xl font-bold text-primary mb-4 leading-tight home-title">
-						Ambientes Eva
+					<h2 className="text-2xl md:text-4xl text-primary mb-4 leading-tight hero-title">
+						AMBIENTES EVA
 					</h2>
 					<div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
 					<p className="text-lg text-primary max-w-2xl mx-auto leading-relaxed">

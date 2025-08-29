@@ -148,7 +148,7 @@ export const ContactMap: React.FC = () => {
         <div className="max-w-7xl mx-auto">
           {/* Título da seção */}
           <div className="text-center mb-16 animate-fade-in-up">
-            <h2 className="text-2xl lg:text-3xl font-bold text-[var(--primary)] mb-4">
+            <h2 className="text-2xl md:text-4xl text-primary mb-4 leading-tight hero-title">
               Entre em Contato
             </h2>
             <div className="w-24 h-1 bg-[var(--primary)] mx-auto rounded-full"></div>
@@ -186,7 +186,7 @@ export const ContactMap: React.FC = () => {
                         <Phone className="w-5 h-5 text-[var(--primary)] flex-shrink-0" />
                         <div>
                           <p className="font-semibold text-[var(--gray-600)]">Telefone</p>
-                          <p className="text-sm text-[var(--gray-100)]">(21) 99999-9999</p>
+                          <p className="text-sm text-[var(--gray-100)]">(21) 4101-3747</p>
                         </div>
                       </CardContent>
                     </Card>
@@ -196,7 +196,7 @@ export const ContactMap: React.FC = () => {
                         <Mail className="w-5 h-5 text-[var(--primary)] flex-shrink-0" />
                         <div>
                           <p className="font-semibold text-[var(--gray-600)]">E-mail</p>
-                          <p className="text-sm text-[var(--gray-100)]">contato@evamarcenaria.com.br</p>
+                          <p className="text-sm text-[var(--gray-100)]">eva@evamarcenaria.com.br</p>
                         </div>
                       </CardContent>
                     </Card>
@@ -290,7 +290,7 @@ export const ContactMap: React.FC = () => {
                           id="telefone"
                           name="telefone"
                           type="tel"
-                          placeholder="(21) 99999-9999"
+                          placeholder="(21) 4101-3747"
                           value={formData.telefone}
                           onChange={handleInputChange}
                           className={`transition-all duration-200 ${

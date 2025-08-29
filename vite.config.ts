@@ -22,7 +22,13 @@ export default defineConfig({
           ui: ['@radix-ui/react-dialog', '@radix-ui/react-label', '@radix-ui/react-slot'],
           icons: ['lucide-react', 'react-icons'],
           carousel: ['embla-carousel-react'],
-          utils: ['clsx', 'class-variance-authority', 'tailwind-merge']
+          utils: ['clsx', 'class-variance-authority', 'tailwind-merge'],
+          'pages-home': ['./src/pages/Home'],
+          'pages-about': ['./src/pages/About'],
+          'pages-products': ['./src/pages/Products'],
+          'pages-contact': ['./src/pages/Contact'],
+          'pages-work-with-us': ['./src/pages/WorkWithUs'],
+          'pages-not-found': ['./src/pages/NotFound']
         }
       }
     },

@@ -2,7 +2,7 @@ export function WorkWithUs() {
   return (
     <div className="page-content space-y-8">
       <section className="text-center py-8">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">Trabalhe Conosco</h1>
+        <h1 className="text-2xl md:text-4xl text-primary mb-4 leading-tight hero-title">TRABALHE CONOSCO</h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
           Faça parte de nossa equipe e ajude-nos a criar móveis excepcionais
         </p>
