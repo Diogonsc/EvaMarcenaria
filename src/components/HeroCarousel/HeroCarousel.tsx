@@ -113,7 +113,7 @@ export function HeroCarousel() {
       <div className="absolute inset-0 z-40 flex items-center justify-center text-center text-white px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-center w-full max-w-4xl">
           <h1 
-            className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-4 leading-tight hero-title text-accent drop-shadow-lg transition-all duration-200 text-center ${
+            className={`text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-4 leading-tight hero-title text-accent drop-shadow-lg transition-all duration-200 text-center ${
               showAnimations ? 'animate__animated animate__fadeInDown animate__delay-1s' : 'opacity-0'
             }`}
           >

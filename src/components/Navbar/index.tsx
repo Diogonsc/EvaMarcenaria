@@ -2,7 +2,7 @@ import LogoEva from '@/assets/logo-marrom-eva.webp'
 import LogoEvaBege from '@/assets/logo-bege-eva.webp'
 import { Link } from 'react-router-dom'
 import { SocialMedia } from '../SocialMedia'
-import { FaFacebookF, FaInstagram, FaWhatsapp, FaHome, FaInfoCircle, FaBox, FaPhone, FaBriefcase, FaTimes } from 'react-icons/fa'
+import { FaFacebookF, FaInstagram, FaWhatsapp, FaTimes } from 'react-icons/fa'
 import { useScrollEffect } from '../../hooks/useScrollEffect'
 import { Menu, Phone, Mail, MapPin } from 'lucide-react'
 import { useState, useEffect } from 'react'
@@ -19,11 +19,11 @@ export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const navItems = [
-    { to: '/', label: 'Home', icon: <FaHome className="w-5 h-5" /> },
-    { to: '/about', label: 'Sobre Nós', icon: <FaInfoCircle className="w-5 h-5" /> },
-    { to: '/products', label: 'Produtos', icon: <FaBox className="w-5 h-5" /> },
-    { to: '/contact', label: 'Contato', icon: <FaPhone className="w-5 h-5" /> },
-    { to: '/work-with-us', label: 'Trabalhe Conosco', icon: <FaBriefcase className="w-5 h-5" /> },
+    { to: '/', label: 'Home' },
+    { to: '/about', label: 'Sobre Nós' },
+    { to: '/products', label: 'Produtos' },
+    { to: '/contact', label: 'Contato' },
+    { to: '/work-with-us', label: 'Trabalhe Conosco' },
   ]
 
   const contactInfo = [
@@ -56,7 +56,6 @@ export function Navbar() {
           className={`nav-link transition-colors duration-200 navbar-font ${className}`}
           onClick={onClick}
         >
-          <span className="mr-3 text-primary">{item.icon}</span>
           {item.label}
         </Link>
       ))}
@@ -152,7 +151,7 @@ export function Navbar() {
           
           <SheetContent 
             side="right" 
-            className="w-full max-w-[350px] bg-white border-l-2 border-primary/20 p-0 overflow-hidden"
+            className="w-full max-w-[350px] bg-white border-l-2 border-primary/20 p-0 flex flex-col"
             hideCloseButton={true}
           >
             {/* Header do Menu */}
@@ -183,7 +182,7 @@ export function Navbar() {
             </SheetHeader>
             
             {/* Conteúdo do Menu */}
-            <div className="flex flex-col h-full bg-white">
+            <div className="flex flex-col flex-1 bg-white min-h-0">
               {/* Container com Scroll */}
               <div className="flex-1 overflow-y-auto mobile-menu-scroll">
                 {/* Navegação Mobile */}
@@ -260,6 +259,9 @@ export function Navbar() {
                     Fale Conosco no WhatsApp
                   </a>
                 </div>
+                
+                {/* Espaço extra no final para garantir scroll */}
+                <div className="h-8"></div>
               </div>
             </div>
           </SheetContent>
