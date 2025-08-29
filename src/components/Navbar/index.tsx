@@ -49,15 +49,12 @@ export function Navbar() {
 
   const NavLinks = ({ className = '', onClick }: { className?: string; onClick?: () => void }) => (
     <>
-      {navItems.map((item, index) => (
+      {navItems.map((item) => (
         <Link
           key={item.to}
           to={item.to}
-          className={`nav-link transition-all duration-300 navbar-font ${className}`}
+          className={`nav-link transition-colors duration-200 navbar-font ${className}`}
           onClick={onClick}
-          style={{
-            animationDelay: `${index * 100}ms`
-          }}
         >
           <span className="mr-3 text-primary">{item.icon}</span>
           {item.label}
@@ -89,7 +86,7 @@ export function Navbar() {
 
   return (
     <header
-      className={`w-full flex justify-between items-center fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 md:px-12 py-2 ${
+      className={`w-full flex justify-between items-center fixed top-0 left-0 right-0 z-50 transition-colors duration-200 px-4 md:px-12 py-2 ${
         isScrolled ? 'bg-accent shadow-md backdrop-blur-sm' : 'bg-black/50 backdrop-blur-sm'
       }`}
     >
@@ -102,7 +99,7 @@ export function Navbar() {
         <img
           src={isScrolled ? LogoEva : LogoEvaBege}
           alt="Eva Marcenaria"
-          className="w-16 h-16 md:w-24 md:h-24 object-contain transition-all duration-300 hover:scale-105"
+                        className="w-16 h-16 md:w-24 md:h-24 object-contain transition-colors duration-200"
         />
       </picture>
 
@@ -141,10 +138,10 @@ export function Navbar() {
         <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
           <SheetTrigger asChild>
             <button
-              className={`relative p-3 rounded-full transition-all duration-300 mobile-menu-button ${
+              className={`relative p-3 rounded-full transition-colors duration-200 ${
                 isScrolled 
-                  ? 'text-primary hover:bg-primary/10 hover:scale-110' 
-                  : 'text-accent hover:bg-accent/10 hover:scale-110'
+                  ? 'text-primary hover:bg-primary/10' 
+                  : 'text-accent hover:bg-accent/10'
               }`}
               aria-label="Abrir menu de navegação"
             >
@@ -155,7 +152,7 @@ export function Navbar() {
           
           <SheetContent 
             side="right" 
-            className="w-full max-w-[350px] bg-white border-l-2 border-primary/20 p-0 overflow-hidden mobile-menu-enter"
+            className="w-full max-w-[350px] bg-white border-l-2 border-primary/20 p-0 overflow-hidden"
             hideCloseButton={true}
           >
             {/* Header do Menu */}
@@ -191,7 +188,7 @@ export function Navbar() {
               <nav className="flex-1 p-6">
                 <div className="space-y-2">
                   <NavLinks
-                    className="flex items-center w-full p-4 text-primary text-lg font-medium rounded-xl hover:bg-primary/10 hover:scale-105 transition-all duration-300 border border-transparent hover:border-primary/20 mobile-menu-item mobile-menu-hover mobile-menu-item-enter bg-white"
+                    className="flex items-center w-full p-3 text-primary text-base font-medium rounded-lg hover:bg-primary/10 transition-colors duration-200 border border-transparent hover:border-primary/20 bg-white"
                     onClick={() => setIsMenuOpen(false)}
                   />
                 </div>
@@ -207,7 +204,7 @@ export function Navbar() {
                     <a
                       key={index}
                       href={info.href}
-                      className="flex items-center p-3 rounded-lg bg-white hover:bg-gray-100 transition-all duration-300 hover:scale-105 group shadow-sm"
+                      className="flex items-center p-3 rounded-lg bg-white hover:bg-gray-100 transition-colors duration-200 group shadow-sm"
                     >
                       <div className="p-2 rounded-full bg-primary/20 text-primary mr-3 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                         {info.icon}
@@ -253,7 +250,7 @@ export function Navbar() {
                 {/* Botão de WhatsApp Flutuante */}
                 <a
                   href="https://wa.me/5511999999999"
-                  className="mt-4 w-full flex items-center justify-center gap-2 p-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-medium transition-all duration-300 hover:scale-105 shadow-lg"
+                  className="mt-4 w-full flex items-center justify-center gap-2 p-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors duration-200 shadow-lg"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
