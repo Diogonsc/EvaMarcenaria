@@ -287,10 +287,10 @@ body {
   }
 }
 
-@keyframes slideInLeft {
+@keyframes slideInFromLeft {
   from {
     opacity: 0;
-    transform: translateX(-50px);
+    transform: translateX(-30px);
   }
   to {
     opacity: 1;
@@ -298,10 +298,10 @@ body {
   }
 }
 
-@keyframes slideInRight {
+@keyframes slideInFromRight {
   from {
     opacity: 0;
-    transform: translateX(50px);
+    transform: translateX(30px);
   }
   to {
     opacity: 1;
@@ -309,21 +309,194 @@ body {
   }
 }
 
-@keyframes pulse {
-  0%, 100% {
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
     transform: scale(1);
   }
-  50% {
-    transform: scale(1.05);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  50% {
-    transform: translateY(-10px);
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animações para o WhatsApp Button */
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.33);
+  }
+  40%, 50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.33);
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+}
+
+/* Estilos específicos para modais no mobile */
+@media (max-width: 768px) {
+  /* Garantir que o modal ocupe toda a tela no mobile */
+  [data-radix-dialog-content] {
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: none !important;
+    max-height: none !important;
+    left: 0 !important;
+    top: 0 !important;
+    transform: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+  }
+  
+  /* Garantir que o overlay cubra toda a tela */
+  [data-radix-dialog-overlay] {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 50 !important;
+  }
+  
+  /* Ajustar o scroll do modal no mobile */
+  [data-radix-dialog-content] > div {
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  
+  /* Garantir que o conteúdo seja scrollável */
+  [data-radix-dialog-content] .overflow-y-auto {
+    flex: 1 !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  
+  /* Melhorar a aparência do header do modal no mobile */
+  [data-radix-dialog-content] [data-radix-dialog-header] {
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.05) 0%, hsl(var(--primary) / 0.1) 100%) !important;
+    border-bottom: 1px solid hsl(var(--primary) / 0.2) !important;
+    backdrop-filter: blur(10px) !important;
+  }
+  
+  /* Melhorar a aparência da imagem em destaque no mobile */
+  [data-radix-dialog-content] .relative.h-96 {
+    height: 24rem !important; /* 384px */
+    margin-bottom: 1.5rem !important;
+  }
+  
+  /* Melhorar o espaçamento do carousel no mobile */
+  [data-radix-dialog-content] .space-y-6 > div:last-child {
+    margin-bottom: 1.5rem !important;
+  }
+}
+
+/* Estilos específicos para o carousel no modal */
+.carousel-container {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) transparent;
+}
+
+.carousel-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.carousel-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.carousel-container::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+.carousel-container::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Melhorar a aparência dos botões do carousel */
+.carousel-button {
+  transition: all 0.2s ease-in-out;
+  border: 1px solid hsl(var(--primary) / 0.2) !important;
+}
+
+.carousel-button:hover {
+  transform: scale(1.1);
+  background: hsl(var(--primary) / 0.1) !important;
+  border-color: hsl(var(--primary) / 0.4) !important;
+}
+
+.carousel-button:focus {
+  outline: 2px solid hsl(var(--primary) / 0.5) !important;
+  outline-offset: 2px !important;
+}
+
+/* Efeito de hover melhorado para as imagens do carousel */
+.carousel-image-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-image-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Melhorar a aparência do modal no mobile */
+@media (max-width: 768px) {
+  .carousel-image-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* Melhorar a aparência do botão de voltar */
+  [data-radix-dialog-content] .absolute.top-4.left-4 button {
+    backdrop-filter: blur(8px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  /* Melhorar a aparência do header */
+  [data-radix-dialog-content] [data-radix-dialog-header] {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
   }
 }
 
