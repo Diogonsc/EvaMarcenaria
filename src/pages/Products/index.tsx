@@ -1,4 +1,11 @@
 import { LazyImage } from '../../components/ui/lazy-component'
+// Importando imagens de capa dos ambientes
+import cozinhaCapa from '@/assets/cozinha-capa.webp'
+import quartoCapa from '@/assets/quarto-capa.webp'
+import salaCapa from '@/assets/sala-capa.webp'
+import banheiroCapa from '@/assets/Banheiro-capa.webp'
+import areaServicoCapa from '@/assets/area-servico-capa.webp'
+import areaGourmetCapa from '@/assets/area-gourmet-capa.webp'
 
 export function Products() {
   return (
@@ -13,7 +20,7 @@ export function Products() {
       <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
           <LazyImage
-            src="/images/cozinha.webp"
+            src={cozinhaCapa}
             alt="Cozinha planejada"
             className="h-48"
           />
@@ -30,7 +37,7 @@ export function Products() {
         
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
           <LazyImage
-            src="/images/quarto.webp"
+            src={quartoCapa}
             alt="Móveis para quarto"
             className="h-48"
           />
@@ -47,7 +54,7 @@ export function Products() {
         
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
           <LazyImage
-            src="/images/sala.webp"
+            src={salaCapa}
             alt="Móveis para sala"
             className="h-48"
           />
@@ -64,14 +71,14 @@ export function Products() {
         
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
           <LazyImage
-            src="/images/escritorio.webp"
-            alt="Móveis para escritório"
+            src={areaServicoCapa}
+            alt="Área de serviço"
             className="h-48"
           />
           <div className="p-6">
-            <h3 className="text-xl font-semibold mb-2">Escritórios</h3>
+            <h3 className="text-xl font-semibold mb-2">Áreas de Serviço</h3>
             <p className="text-gray-600 mb-4">
-              Mesas, estantes e móveis para escritório com foco em produtividade.
+              Organização inteligente para suas áreas de serviço com móveis sob medida.
             </p>
             <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors">
               Ver Mais
@@ -81,7 +88,7 @@ export function Products() {
         
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
           <LazyImage
-            src="/images/banheiro.webp"
+            src={banheiroCapa}
             alt="Móveis para banheiro"
             className="h-48"
           />
@@ -98,14 +105,14 @@ export function Products() {
         
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
           <LazyImage
-            src="/images/especial.webp"
-            alt="Projetos especiais"
+            src={areaGourmetCapa}
+            alt="Área gourmet"
             className="h-48"
           />
           <div className="p-6">
-            <h3 className="text-xl font-semibold mb-2">Projetos Especiais</h3>
+            <h3 className="text-xl font-semibold mb-2">Área Gourmet</h3>
             <p className="text-gray-600 mb-4">
-              Móveis especiais e projetos únicos para necessidades específicas.
+              Espaços gourmet que transformam momentos em experiências únicas.
             </p>
             <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors">
               Ver Mais

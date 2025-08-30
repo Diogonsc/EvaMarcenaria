@@ -12,56 +12,107 @@ import {
 import { FaCircleCheck, FaScrewdriverWrench } from 'react-icons/fa6'
 import { FaLightbulb } from 'react-icons/fa'
 
+// Importando imagens dos quartos
+import slideQuarto01 from '@/assets/slide-inspiracao-quarto-01.webp'
+import slideQuarto03 from '@/assets/slide-inspiracao-quarto-03.webp'
+import slideQuarto04 from '@/assets/slide-inspiracao-quarto-04.webp'
+import slideQuarto06 from '@/assets/slide-inspiracao-quarto-06.webp'
+import slideQuarto07 from '@/assets/slide-inspiracao-quarto-07.webp'
+
+// Importando imagens das cozinhas
+import slideCozinha01 from '@/assets/slide-cozinha-inspiracao-01.webp'
+import slideCozinha02 from '@/assets/slide-cozinha-inspiracao-02.webp'
+import slideCozinha03 from '@/assets/slide-cozinha-inspiracao-03.webp'
+import slideCozinha04 from '@/assets/slide-cozinha-inspiracao-04.webp'
+import slideCozinha05 from '@/assets/slide-cozinha-inspiracao-05.webp'
+import slideCozinha06 from '@/assets/slide-cozinha-inspiracao-06.webp'
+
+// Importando imagens dos banheiros
+import slideBanheiro01 from '@/assets/slide-banheiro-inspiracao-01.webp'
+import slideBanheiro02 from '@/assets/slide-banheiro-inspiracao-02.webp'
+import slideBanheiro03 from '@/assets/slide-banheiro-inspiracao-03.webp'
+import slideBanheiro04 from '@/assets/slide-banheiro-inspiracao-04.webp'
+import slideBanheiro05 from '@/assets/slide-banheiro-inspiracao-05.webp'
+import slideBanheiro06 from '@/assets/slide-banheiro-inspiracao-06.webp'
+
+// Importando imagens das áreas de serviço
+import slideServicos01 from '@/assets/slide-inspiracao-servicos-01.webp'
+import slideServicos02 from '@/assets/slide-inspiracao-servicos-02.webp'
+import slideServicos03 from '@/assets/slide-inspiracao-servicos-03.webp'
+
+// Importando imagens das salas
+import slideSala01 from '@/assets/slide-inspiracao-sala-01.webp'
+import slideSala02 from '@/assets/slide-inspiracao-sala-02.webp'
+import slideSala03 from '@/assets/slide-inspiracao-sala-03.webp'
+import slideSala04 from '@/assets/slide-inspiracao-sala-04.webp'
+import slideSala05 from '@/assets/slide-inspiracao-sala-05.webp'
+import slideSala06 from '@/assets/slide-inspiracao-sala-06.webp'
+
+// Importando imagens das áreas gourmet
+import areaGourmet01 from '@/assets/area_gourmet_01.webp'
+import areaGourmet02 from '@/assets/area_gourmet_02.webp'
+import areaGourmet03 from '@/assets/area_gourmet_03.webp'
+import areaGourmet04 from '@/assets/area_gourmet_04.webp'
+import areaGourmet05 from '@/assets/area_gourmet_05.webp'
+
+// Importando imagens de capa
+import quartoCapa from '@/assets/quarto-capa.webp'
+import cozinhaCapa from '@/assets/cozinha-capa.webp'
+import banheiroCapa from '@/assets/Banheiro-capa.webp'
+import areaServicoCapa from '@/assets/area-servico-capa.webp'
+import salaCapa from '@/assets/sala-capa.webp'
+import areaGourmetCapa from '@/assets/area-gourmet-capa.webp'
+
 export const environmentGalleries = {
   1: [ // QUARTOS
-    'src/assets/slide-inspiracao-quarto-01.webp', // Substitua por imagem real
-    'src/assets/slide-inspiracao-quarto-03.webp', // Substitua por imagem real
-    'src/assets/slide-inspiracao-quarto-04.webp', // Substitua por imagem real
-    'src/assets/slide-inspiracao-quarto-06.webp', // Substitua por imagem real
-    'src/assets/slide-inspiracao-quarto-07.webp', // Substitua por imagem real
+    slideQuarto01,
+    slideQuarto03,
+    slideQuarto04,
+    slideQuarto06,
+    slideQuarto07,
   ],
   2: [ // COZINHAS
-    'src/assets/slide-cozinha-inspiracao-01.webp', // Substitua por imagem real
-    'src/assets/slide-cozinha-inspiracao-02.webp', // Substitua por imagem real
-    'src/assets/slide-cozinha-inspiracao-03.webp', // Substitua por imagem real
-    'src/assets/slide-cozinha-inspiracao-04.webp', // Substitua por imagem real
-    'src/assets/slide-cozinha-inspiracao-05.webp', // Substitua por imagem real
-    'src/assets/slide-cozinha-inspiracao-06.webp', // Substitua por imagem real
+    slideCozinha01,
+    slideCozinha02,
+    slideCozinha03,
+    slideCozinha04,
+    slideCozinha05,
+    slideCozinha06,
   ],
   3: [ // BANHEIROS
-    'src/assets/slide-banheiro-inspiracao-01.webp', // Substitua por imagem real
-    'src/assets/slide-banheiro-inspiracao-02.webp', // Substitua por imagem real
-    'src/assets/slide-banheiro-inspiracao-03.webp', // Substitua por imagem real
-    'src/assets/slide-banheiro-inspiracao-04.webp', // Substitua por imagem real
-    'src/assets/slide-banheiro-inspiracao-05.webp', // Substitua por imagem real
-    'src/assets/slide-banheiro-inspiracao-06.webp', // Substitua por imagem real
+    slideBanheiro01,
+    slideBanheiro02,
+    slideBanheiro03,
+    slideBanheiro04,
+    slideBanheiro05,
+    slideBanheiro06,
   ],
   4: [ // ÁREAS DE SERVIÇO
-    'src/assets/slide-inspiracao-servicos-01.webp', // Substitua por imagem real
-    'src/assets/slide-inspiracao-servicos-02.webp', // Substitua por imagem real
-    'src/assets/slide-inspiracao-servicos-03.webp', // Substitua por imagem real
+    slideServicos01,
+    slideServicos02,
+    slideServicos03,
   ],
   5: [ // SALA DE ESTAR
-    'src/assets/slide-inspiracao-sala-01.webp', // Substitua por imagem real
-    'src/assets/slide-inspiracao-sala-02.webp', // Substitua por imagem real
-    'src/assets/slide-inspiracao-sala-03.webp', // Substitua por imagem real
-    'src/assets/slide-inspiracao-sala-04.webp', // Substitua por imagem real
-    'src/assets/slide-inspiracao-sala-05.webp', // Substitua por imagem real
-    'src/assets/slide-inspiracao-sala-06.webp', // Substitua por imagem real
+    slideSala01,
+    slideSala02,
+    slideSala03,
+    slideSala04,
+    slideSala05,
+    slideSala06,
   ],
   6: [ // ÁREA GOURMET
-    'src/assets/area_gourmet_01.webp', // Substitua por imagem real
-    'src/assets/area_gourmet_02.webp', // Substitua por imagem real
-    'src/assets/area_gourmet_03.webp', // Substitua por imagem real
-    'src/assets/area_gourmet_04.webp', // Substitua por imagem real
-    'src/assets/area_gourmet_05.webp', // Substitua por imagem real
+    areaGourmet01,
+    areaGourmet02,
+    areaGourmet03,
+    areaGourmet04,
+    areaGourmet05,
   ],
 }
 
 export const environmentsList = [
   {
     id: 1,
-    image: 'src/assets/quarto-capa.webp',
+    image: quartoCapa,
     title: 'QUARTOS',
     description: 'Móveis planejados que transformam seu quarto em um refúgio de conforto e elegância',
     icon: MdBed,
@@ -74,7 +125,7 @@ export const environmentsList = [
   },
   {
     id: 2,
-    image: 'src/assets/cozinha-capa.webp',
+    image: cozinhaCapa,
     title: 'COZINHAS',
     description: 'Cozinhas funcionais e sofisticadas que unem praticidade e design exclusivo',
     icon: MdKitchen,
@@ -87,7 +138,7 @@ export const environmentsList = [
   },
   {
     id: 3,
-    image: 'src/assets/Banheiro-capa.webp',
+    image: banheiroCapa,
     title: 'BANHEIROS',
     description: 'Móveis para banheiro que combinam funcionalidade com acabamentos premium',
     icon: MdShower,
@@ -100,7 +151,7 @@ export const environmentsList = [
   },
   {
     id: 4,
-    image: 'src/assets/area-servico-capa.webp',
+    image: areaServicoCapa,
     title: 'ÁREAS DE SERVIÇO',
     description: 'Organização inteligente para suas áreas de serviço com móveis sob medida',
     icon: MdLocalLaundryService,
@@ -113,7 +164,7 @@ export const environmentsList = [
   },
   {
     id: 5,
-    image: 'src/assets/sala-capa.webp',
+    image: salaCapa,
     title: 'SALA DE ESTAR',
     description: 'Móveis planejados que criam ambientes acolhedores e sofisticados',
     icon: MdLiving,
@@ -126,7 +177,7 @@ export const environmentsList = [
   },
   {
     id: 6,
-    image: 'src/assets/area-gourmet-capa.webp',
+    image: areaGourmetCapa,
     title: 'ÁREA GOURMET',
     description: 'Espaços gourmet que transformam momentos em experiências únicas',
     icon: MdWineBar,
