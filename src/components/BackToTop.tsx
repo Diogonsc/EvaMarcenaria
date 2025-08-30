@@ -32,7 +32,7 @@ const BackToTop = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-32 right-6 z-50">
+    <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50">
       <button
         onClick={scrollToTop}
         className="bg-primary hover:bg-primary/80 text-white p-3 rounded-lg shadow-2xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center group"

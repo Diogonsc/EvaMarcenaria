@@ -80,27 +80,35 @@ const WhatsAppButton = () => {
   return (
     <>
       {/* WhatsApp Button */}
-      <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50">
-        <button
-          onClick={handleWhatsAppClick}
-          className={`whatsapp-btn ${
-            isOnline
-              ? "bg-green-500 hover:bg-green-600"
-              : "bg-gray-500 hover:bg-gray-600"
-          } text-white p-3 md:p-4 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center relative animate-pulse-ring`}
-          aria-label={`${
-            isOnline
-              ? "Falar no WhatsApp - Online agora"
-              : "Falar no WhatsApp - Fora do horário de atendimento"
-          }`}
-        >
-          <FaWhatsapp className="w-8 h-8 md:w-8 md:h-8" aria-hidden="true" />
-        </button>
+      <div className="fixed bottom-4 left-4 md:bottom-6 md:left-6 z-50">
+        <div className="relative">
+          {/* Pulse ring effect */}
+          <div className={`absolute inset-0 rounded-full animate-pulse-ring ${
+            isOnline ? "bg-green-500" : "bg-gray-500"
+          } opacity-75`}></div>
+          
+          {/* Main button */}
+          <button
+            onClick={handleWhatsAppClick}
+            className={`relative ${
+              isOnline
+                ? "bg-green-500 hover:bg-green-600"
+                : "bg-gray-500 hover:bg-gray-600"
+            } text-white p-3 md:p-4 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center`}
+            aria-label={`${
+              isOnline
+                ? "Falar no WhatsApp - Online agora"
+                : "Falar no WhatsApp - Fora do horário de atendimento"
+            }`}
+          >
+            <FaWhatsapp className="w-8 h-8 md:w-8 md:h-8" aria-hidden="true" />
+          </button>
+        </div>
       </div>
 
       {/* Tooltip */}
       {showTooltip && (
-        <div className="fixed bottom-20 right-2 md:bottom-24 md:right-4 z-40 animate-slide-in">
+        <div className="fixed bottom-20 left-2 md:bottom-24 md:left-4 z-40 animate-slide-in">
           <Card className="bg-white shadow-2xl border-0 max-w-sm md:max-w-md">
             <CardContent className="p-4 md:p-5 relative">
               <button
@@ -169,7 +177,7 @@ const WhatsAppButton = () => {
               </div>
 
               {/* Tooltip Arrow */}
-              <div className="absolute bottom-0 right-8 md:right-10 transform translate-y-full">
+              <div className="absolute bottom-0 left-8 md:left-10 transform translate-y-full">
                 <div className="w-0 h-0 border-l-8 border-r-8 border-t-8 md:border-l-10 md:border-r-10 md:border-t-10 border-l-transparent border-r-transparent border-t-white"></div>
               </div>
             </CardContent>

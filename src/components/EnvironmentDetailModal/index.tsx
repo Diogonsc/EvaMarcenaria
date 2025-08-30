@@ -4,7 +4,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
-import { X, ArrowLeft } from 'lucide-react'
+import { X } from 'lucide-react'
 import {
   Carousel,
   CarouselContent,
@@ -54,37 +54,28 @@ export function EnvironmentDetailModal({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="p-0 border-0 shadow-none md:border md:shadow-2xl md:max-w-4xl md:max-h-[90vh] md:overflow-y-auto">
-        {/* Mobile Back Button - Only visible on mobile */}
-        <div className="md:hidden absolute top-4 left-4 z-[110]">
-          <button
-            onClick={onClose}
-            className="w-10 h-10 bg-primary/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-colors duration-200 hover:bg-primary/30 border border-primary/30 shadow-lg"
-            aria-label="Voltar"
-          >
-            <ArrowLeft className="w-5 h-5 text-primary" />
-          </button>
-        </div>
+      <DialogContent className="p-0 border-0 shadow-none md:border md:shadow-2xl md:max-w-4xl md:max-h-[95vh] md:overflow-y-auto">
+
 
         {/* Header - Mobile Full Screen */}
-        <DialogHeader className="sticky top-0 z-[100] bg-gradient-to-r from-primary/5 to-primary/10 border-b border-primary/20 p-4 pb-3 md:p-6 md:pb-4 md:rounded-t-lg">
+        <DialogHeader className="sticky top-0 z-[100] bg-accent border-b border-primary/20 p-3 pb-2 md:p-4 md:pb-3 md:rounded-t-lg">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 md:gap-4 flex-1">
-              <div className="w-10 h-10 md:w-12 md:h-12 bg-primary rounded-full flex items-center justify-center shadow-lg">
-                <environment.icon className="text-lg md:text-xl text-white" />
+              <div className="w-8 h-8 md:w-10 md:h-10 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                <environment.icon className="text-base md:text-lg text-white" />
               </div>
               <div className="flex-1 text-center md:text-left">
-                <DialogTitle className="text-xl md:text-2xl font-bold text-primary font-playfair leading-tight">
+                <DialogTitle className="text-lg md:text-xl font-bold text-primary font-playfair leading-tight">
                   {environment.title}
                 </DialogTitle>
-                <p className="text-primary/70 text-sm md:text-base font-medium mt-1">
+                <p className="text-primary/70 text-xs md:text-sm font-medium mt-1">
                   Móveis planejados sob medida
                 </p>
               </div>
             </div>
             <button
               onClick={onClose}
-              className="p-2 hover:bg-primary/10 rounded-full transition-colors duration-200 md:block hidden"
+              className="p-2 hover:bg-primary/10 rounded-full transition-colors duration-200"
               aria-label="Fechar modal"
             >
               <X className="w-5 h-5 text-primary" />
@@ -97,7 +88,7 @@ export function EnvironmentDetailModal({
           <div className="p-4 md:p-6 space-y-6 md:space-y-8">
             {/* Seção Principal - Imagem Grande com Descrição */}
             <div className="relative">
-              <div className="relative h-96 md:h-[500px] lg:h-[600px] rounded-xl overflow-hidden mb-6 shadow-xl">
+              <div className="relative h-[400px] md:h-[600px] lg:h-[500px] rounded-xl overflow-hidden mb-6 shadow-xl">
                 <img
                   src={selectedImage}
                   alt={environment.title}
@@ -129,7 +120,7 @@ export function EnvironmentDetailModal({
                   {galleryImages.map((image, index) => (
                     <CarouselItem key={index} className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3">
                       <div 
-                        className="relative h-72 md:h-80 lg:h-96 rounded-lg overflow-hidden group cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300 carousel-image-hover"
+                        className="relative h-48 md:h-56 lg:h-64 rounded-lg overflow-hidden group cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300 carousel-image-hover"
                         onClick={() => setSelectedImage(image)}
                       >
                         <img
