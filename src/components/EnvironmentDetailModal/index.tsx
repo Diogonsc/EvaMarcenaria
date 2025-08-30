@@ -88,6 +88,7 @@ export function EnvironmentDetailModal({
                 src={selectedImage}
                 alt={environment.title}
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -121,6 +122,7 @@ export function EnvironmentDetailModal({
                         src={image}
                         alt={`${environment.title} - Imagem ${index + 1}`}
                         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        loading="lazy"
                       />
                       <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       {selectedImage === image && (

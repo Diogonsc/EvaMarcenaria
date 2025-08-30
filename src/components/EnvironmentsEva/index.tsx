@@ -64,6 +64,7 @@ export function EnvironmentsEva() {
 									src={environment.image} 
 									alt={environment.title}
 									className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+									loading="lazy"
 								/>
 								
 								{/* Gradient Overlay */}
