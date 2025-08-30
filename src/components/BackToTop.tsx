@@ -19,6 +19,14 @@ const BackToTop = () => {
       top: 0,
       behavior: 'smooth'
     });
+    
+    // Focar no elemento principal após a rolagem
+    setTimeout(() => {
+      const mainElement = document.getElementById('main-content');
+      if (mainElement) {
+        mainElement.focus();
+      }
+    }, 1000);
   };
 
   useEffect(() => {
@@ -35,7 +43,7 @@ const BackToTop = () => {
     <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50">
       <button
         onClick={scrollToTop}
-        className="bg-primary hover:bg-primary/80 text-white p-3 rounded-lg shadow-2xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center group"
+        className="bg-primary hover:bg-primary/80 text-white p-3 rounded-lg shadow-2xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center group focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
         aria-label="Voltar ao topo da página"
       >
         <FaArrowUp className="w-5 h-5 group-hover:animate-bounce" aria-hidden="true" />

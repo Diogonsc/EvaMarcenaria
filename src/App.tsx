@@ -7,6 +7,7 @@ import BackToTop from './components/BackToTop'
 import { Footer } from './components/Footer'
 import LoadingScreen from './components/LoadingScreen'
 import { useLoadingState } from './hooks/useLoadingState'
+import { SkipLink } from './components/ui/skip-link'
 
 // Configuração das rotas para preload
 const routes = [
@@ -28,6 +29,7 @@ function App() {
 
   return (
     <ErrorBoundary>
+      <SkipLink />
       <LoadingScreen 
         isLoading={isLoading} 
         onLoadingComplete={handleLoadingComplete}
@@ -35,7 +37,7 @@ function App() {
       />
       <div className="w-full bg-gray-50">
         <Navbar />
-        <main className="w-full main-content">
+        <main id="main-content" className="w-full main-content" role="main">
           <AppRoutes />
         </main>
         <WhatsAppButton />

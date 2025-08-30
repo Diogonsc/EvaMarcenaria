@@ -6,6 +6,7 @@ import { FaFacebookF, FaInstagram, FaWhatsapp, FaTimes } from 'react-icons/fa'
 import { useScrollEffect } from '../../hooks/useScrollEffect'
 import { Menu, Phone, Mail, MapPin } from 'lucide-react'
 import { useState, useEffect } from 'react'
+import { useFocusTrap } from '../../hooks/useFocusTrap'
 import {
   Sheet,
   SheetContent,
@@ -17,6 +18,7 @@ import {
 export function Navbar() {
   const isScrolled = useScrollEffect(50)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const menuFocusTrapRef = useFocusTrap(isMenuOpen)
 
   const navItems = [
     { to: '/', label: 'Início' },
@@ -55,6 +57,7 @@ export function Navbar() {
           to={item.to}
           className={`nav-link transition-colors duration-200 navbar-font ${className}`}
           onClick={onClick}
+          aria-label={`Navegar para ${item.label}`}
         >
           {item.label}
         </Link>
@@ -88,6 +91,7 @@ export function Navbar() {
       className={`w-full flex justify-between items-center fixed top-0 left-0 right-0 z-50 transition-colors duration-200 px-4 md:px-12 py-2 ${
         isScrolled ? 'bg-accent shadow-md backdrop-blur-sm' : 'bg-black/50 backdrop-blur-sm'
       }`}
+      role="banner"
     >
       {/* Logo */}
       <picture>
@@ -97,13 +101,13 @@ export function Navbar() {
         />
         <img
           src={isScrolled ? LogoEva : LogoEvaBege}
-          alt="Eva Marcenaria"
-                        className="w-16 h-16 md:w-24 md:h-24 object-contain transition-colors duration-200"
+          alt="Eva Marcenaria - Logo da empresa"
+          className="w-16 h-16 md:w-24 md:h-24 object-contain transition-colors duration-200"
         />
       </picture>
 
       {/* Navegação Desktop */}
-      <nav className="hidden md:flex items-center gap-12">
+      <nav className="hidden md:flex items-center gap-12" role="navigation" aria-label="Navegação principal">
         <NavLinks
           className={
             isScrolled ? 'text-primary hover:text-primary/80' : 'text-accent hover:text-primary'
@@ -153,6 +157,7 @@ export function Navbar() {
             side="right" 
             className="w-full max-w-[350px] bg-white border-l-2 border-primary/20 p-0 flex flex-col"
             hideCloseButton={true}
+            ref={menuFocusTrapRef}
           >
             {/* Header do Menu */}
             <SheetHeader className="bg-gradient-to-r from-primary to-primary/80 p-4 text-white relative">
@@ -162,7 +167,7 @@ export function Navbar() {
                     <source srcSet={LogoEvaBege} type="image/png" />
                     <img
                       src={LogoEvaBege}
-                      alt="Eva Marcenaria"
+                      alt="Eva Marcenaria - Logo da empresa"
                       className="w-12 h-12 object-contain"
                     />
                   </picture>
@@ -186,7 +191,7 @@ export function Navbar() {
               {/* Container com Scroll */}
               <div className="flex-1 overflow-y-auto mobile-menu-scroll">
                 {/* Navegação Mobile */}
-                <nav className="p-4">
+                <nav className="p-4" role="navigation" aria-label="Menu de navegação mobile">
                   <div className="space-y-1">
                     <NavLinks
                       className="flex items-center w-full p-3 text-primary text-base font-medium rounded-lg hover:bg-primary/10 transition-colors duration-200 border border-transparent hover:border-primary/20 bg-white"

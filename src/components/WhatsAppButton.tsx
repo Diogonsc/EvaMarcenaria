@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { FaWhatsapp, FaTimes } from "react-icons/fa";
 import { Card, CardContent } from "@/components/ui/card";
+import { useKeyboardNavigation } from "../hooks/useKeyboardNavigation";
 
 const WhatsAppButton = () => {
   const [showTooltip, setShowTooltip] = useState(false);
@@ -75,6 +76,13 @@ const WhatsAppButton = () => {
     setShowTooltip(false);
   };
 
+  // Navegação por teclado
+  useKeyboardNavigation(
+    handleCloseTooltip, // ESC para fechar tooltip
+    handleWhatsAppClick, // Enter para abrir WhatsApp
+    handleWhatsAppClick // Espaço para abrir WhatsApp
+  );
+
   if (!isVisible) return null;
 
   return (
@@ -100,6 +108,7 @@ const WhatsAppButton = () => {
                 ? "Falar no WhatsApp - Online agora"
                 : "Falar no WhatsApp - Fora do horário de atendimento"
             }`}
+            aria-describedby={showTooltip ? "whatsapp-tooltip" : undefined}
           >
             <FaWhatsapp className="w-8 h-8 md:w-8 md:h-8" aria-hidden="true" />
           </button>
@@ -108,7 +117,7 @@ const WhatsAppButton = () => {
 
       {/* Tooltip */}
       {showTooltip && (
-        <div className="fixed bottom-20 left-2 md:bottom-24 md:left-4 z-40 animate-slide-in">
+        <div className="fixed bottom-20 left-2 md:bottom-24 md:left-4 z-40 animate-slide-in" id="whatsapp-tooltip" role="tooltip">
           <Card className="bg-white shadow-2xl border-0 max-w-sm md:max-w-md">
             <CardContent className="p-4 md:p-5 relative">
               <button

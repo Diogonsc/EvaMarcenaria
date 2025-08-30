@@ -85,7 +85,7 @@ export function HeroCarousel() {
   }
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full h-screen overflow-hidden" role="banner" aria-label="Carrossel de imagens da Eva Marcenaria">
       {/* Container das imagens com efeito de fade */}
       <div className="relative w-full h-full">
         {slides.map((slide, index) => (
@@ -94,6 +94,7 @@ export function HeroCarousel() {
             className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${
               index === currentSlide ? 'opacity-100' : 'opacity-0'
             }`}
+            aria-hidden={index !== currentSlide}
           >
             {/* Imagem de fundo */}
             <div 
@@ -101,10 +102,11 @@ export function HeroCarousel() {
               style={{ 
                 backgroundImage: `url(${slide.image})`
               }}
+              aria-hidden="true"
             />
             
             {/* Overlay escuro para melhor legibilidade do texto */}
-            <div className="absolute inset-0 bg-black/50" />
+            <div className="absolute inset-0 bg-black/50" aria-hidden="true" />
           </div>
         ))}
       </div>
@@ -116,6 +118,8 @@ export function HeroCarousel() {
             className={`text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-4 leading-tight hero-title text-accent drop-shadow-lg transition-all duration-200 text-center ${
               showAnimations ? 'animate__animated animate__fadeInDown animate__delay-1s' : 'opacity-0'
             }`}
+            aria-live="polite"
+            aria-label={`Slide ${currentSlide + 1} de ${slides.length}: ${slides[currentSlide].title}`}
           >
             {slides[currentSlide].title}
           </h1>
@@ -130,15 +134,16 @@ export function HeroCarousel() {
       </div>
 
       {/* Botões de navegação - ocultos em mobile */}
-      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 z-40 hidden md:flex justify-between items-center px-4 md:px-8">
+      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 z-40 hidden md:flex justify-between items-center px-4 md:px-8" role="group" aria-label="Navegação do carrossel">
         <Button
           variant="outline"
           size="icon"
           className="h-12 w-12 md:h-14 md:w-14 rounded-full bg-black/10 backdrop-blur-sm border-0 text-white hover:bg-black/30 transition-all duration-300 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
           onClick={prevSlide}
           disabled={isTransitioning}
+          aria-label="Slide anterior"
         >
-          <ChevronLeft className="size-6 md:size-12 opacity-40" strokeWidth={1.5} />
+          <ChevronLeft className="size-6 md:size-12 opacity-40" strokeWidth={1.5} aria-hidden="true" />
         </Button>
         
         <Button
@@ -147,14 +152,15 @@ export function HeroCarousel() {
           className="h-12 w-12 md:h-14 md:w-14 rounded-full bg-black/10 backdrop-blur-sm border-0 text-white hover:bg-black/30 transition-all duration-300 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
           onClick={nextSlide}
           disabled={isTransitioning}
+          aria-label="Próximo slide"
         >
-          <ChevronRight className="size-6 md:size-12 opacity-40" strokeWidth={1.5} />
+          <ChevronRight className="size-6 md:size-12 opacity-40" strokeWidth={1.5} aria-hidden="true" />
         </Button>
       </div>
 
       {/* Indicadores (bolinhas) */}
-      <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-30 flex space-x-3 md:space-x-4">
-        {slides.map((_, index) => (
+      <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-30 flex space-x-3 md:space-x-4" role="tablist" aria-label="Indicadores de slides">
+        {slides.map((slide, index) => (
           <button
             key={index}
             className={`w-3 h-3 rounded-full transition-all duration-300 border-2 ${
@@ -164,6 +170,9 @@ export function HeroCarousel() {
             } ${isTransitioning ? 'pointer-events-none' : ''}`}
             onClick={() => goToSlide(index)}
             disabled={isTransitioning}
+            role="tab"
+            aria-selected={currentSlide === index}
+            aria-label={`Ir para slide ${index + 1}: ${slide.title}`}
           />
         ))}
       </div>

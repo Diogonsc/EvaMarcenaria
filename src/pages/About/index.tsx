@@ -21,24 +21,26 @@ export function About() {
   return (
     <div className="w-full bg-gradient-to-br from-background via-bg-section to-background">
       {/* Hero Section com Parallax */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden" role="banner" aria-labelledby="hero-title">
         <div className="absolute inset-0">
           <picture>
             <source srcSet={aboutImage} type="image/webp" />
             <img
               src={aboutImage}
-              alt="Eva Marcenaria - Nossa História"
+              alt="Eva Marcenaria - Nossa História - Imagem de fundo mostrando o trabalho da marcenaria"
               className="w-full h-full object-cover transform scale-110"
+              loading="eager"
+              decoding="async"
             />
           </picture>
           {/* Overlay gradiente mais sofisticado */}
-          <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/70" aria-hidden="true" />
         </div>
         
         {/* Conteúdo do Hero */}
         <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
           <div className="animate-fade-in-up">
-            <h1 className="text-2xl md:text-7xl leading-tight hero-title text-accent drop-shadow-lg transition-all duration-200 text-center drop-shadow-2xl mb-6">
+            <h1 id="hero-title" className="text-2xl md:text-7xl leading-tight hero-title text-accent drop-shadow-lg transition-all duration-200 text-center drop-shadow-2xl mb-6">
               Nossa História
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed font-light">
@@ -49,10 +51,10 @@ export function About() {
       </section>
 
       {/* Seção de Valores */}
-      <section className="py-20 px-4 md:px-8 lg:px-16 bg-gradient-to-r from-bg-section to-background">
+      <section className="py-20 px-4 md:px-8 lg:px-16 bg-gradient-to-r from-bg-section to-background" aria-labelledby="valores-title">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 animate-fade-in-up">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl hero-title text-primary mb-6">
+            <h2 id="valores-title" className="text-3xl md:text-4xl lg:text-5xl hero-title text-primary mb-6">
               Nossos Valores
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -60,7 +62,7 @@ export function About() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8" role="list" aria-label="Lista de valores da empresa">
             {[
               {
                 title: "Qualidade",
@@ -81,9 +83,9 @@ export function About() {
                 color: "text-primary"
               }
             ].map((value, index) => (
-              <Card key={index} className="group hover-lift bg-white/80 backdrop-blur-sm border-0 shadow-soft">
+              <Card key={index} className="group hover-lift bg-white/80 backdrop-blur-sm border-0 shadow-soft" role="listitem">
                 <CardContent className="p-8 text-center">
-                  <div className={`text-4xl mb-4 group-hover:scale-110 transition-transform duration-300 ${value.color}`}>
+                  <div className={`text-4xl mb-4 group-hover:scale-110 transition-transform duration-300 ${value.color}`} aria-hidden="true">
                     <value.icon />
                   </div>
                   <h3 className="text-xl font-semibold text-primary mb-3">{value.title}</h3>
@@ -131,15 +133,17 @@ export function About() {
                   <source srcSet={slideConforto} type="image/webp" />
                   <img
                     src={slideConforto}
-                    alt="Início da Eva Marcenaria"
+                    alt="Início da Eva Marcenaria - Imagem mostrando o início da empresa"
                     className="w-full h-[600px] object-cover transform hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </picture>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" aria-hidden="true"></div>
               </div>
               
               {/* Elemento decorativo */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-primary to-accent rounded-full opacity-20 animate-pulse-slow"></div>
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-primary to-accent rounded-full opacity-20 animate-pulse-slow" aria-hidden="true"></div>
             </div>
           </div>
         </div>
@@ -155,15 +159,17 @@ export function About() {
                   <source srcSet={carpinteiroCortando} type="image/webp" />
                   <img
                     src={carpinteiroCortando}
-                    alt="Wagner trabalhando na marcenaria"
+                    alt="Wagner trabalhando na marcenaria - Imagem mostrando o trabalho artesanal"
                     className="w-full h-[600px] object-cover transform hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </picture>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" aria-hidden="true"></div>
               </div>
               
               {/* Elemento decorativo */}
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-br from-accent to-primary rounded-full opacity-20 animate-float"></div>
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-br from-accent to-primary rounded-full opacity-20 animate-float" aria-hidden="true"></div>
             </div>
             
             <div className="animate-slide-in-right">
@@ -227,12 +233,13 @@ export function About() {
               
               {/* CTA Button */}
               <div className="mt-8">
-                <Button 
-                  size="lg" 
-                  className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white px-8 py-4 text-lg font-semibold shadow-soft hover:shadow-medium transition-all duration-300"
-                >
-                  Conheça Nossos Projetos
-                </Button>
+                              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white px-8 py-4 text-lg font-semibold shadow-soft hover:shadow-medium transition-all duration-300"
+                aria-label="Ver portfólio de projetos da Eva Marcenaria"
+              >
+                Conheça Nossos Projetos
+              </Button>
               </div>
             </div>
             
@@ -242,15 +249,17 @@ export function About() {
                   <source srcSet={slidePersonalidade} type="image/webp" />
                   <img
                     src={slidePersonalidade}
-                    alt="Ferramentas da marcenaria"
+                    alt="Ferramentas da marcenaria - Imagem mostrando as ferramentas utilizadas no trabalho"
                     className="w-full h-[600px] object-cover transform hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </picture>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" aria-hidden="true"></div>
               </div>
               
               {/* Elemento decorativo */}
-              <div className="absolute -top-4 -right-4 w-28 h-28 bg-gradient-to-br from-accent to-primary rounded-full opacity-20 animate-pulse-slow"></div>
+              <div className="absolute -top-4 -right-4 w-28 h-28 bg-gradient-to-br from-accent to-primary rounded-full opacity-20 animate-pulse-slow" aria-hidden="true"></div>
             </div>
           </div>
         </div>
@@ -268,7 +277,7 @@ export function About() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" role="list" aria-label="Lista de especialidades da empresa">
             {[
               {
                 title: "Projetos Personalizados",
@@ -295,9 +304,9 @@ export function About() {
                 color: "text-primary"
               }
             ].map((specialty, index) => (
-              <Card key={index} className="group hover-lift bg-white/80 backdrop-blur-sm border-0 shadow-soft">
+              <Card key={index} className="group hover-lift bg-white/80 backdrop-blur-sm border-0 shadow-soft" role="listitem">
                 <CardContent className="p-6 text-center">
-                  <div className={`text-3xl mb-4 group-hover:scale-110 transition-transform duration-300 ${specialty.color}`}>
+                  <div className={`text-3xl mb-4 group-hover:scale-110 transition-transform duration-300 ${specialty.color}`} aria-hidden="true">
                     <specialty.icon />
                   </div>
                   <h3 className="text-lg font-semibold text-primary mb-2">{specialty.title}</h3>
@@ -321,18 +330,18 @@ export function About() {
             </p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8" role="list" aria-label="Estatísticas da empresa">
             {[
               { number: "25", label: "Anos de Amizade", suffix: "+", icon: FaHeart, color: "text-primary" },
               { number: "18", label: "Anos como Projetista", suffix: "", icon: FaAward, color: "text-primary" },
               { number: "500", label: "Projetos Realizados", suffix: "+", icon: FaCheckCircle, color: "text-primary" },
               { number: "100", label: "Clientes Satisfeitos", suffix: "%", icon: FaStar, color: "text-primary" }
             ].map((stat, index) => (
-              <div key={index} className="text-center group">
-                <div className={`text-2xl mb-2 group-hover:scale-110 transition-transform duration-300 ${stat.color}`}>
+              <div key={index} className="text-center group" role="listitem">
+                <div className={`text-2xl mb-2 group-hover:scale-110 transition-transform duration-300 ${stat.color}`} aria-hidden="true">
                   <stat.icon />
                 </div>
-                <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform duration-300">
+                <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform duration-300" aria-label={`${stat.number}${stat.suffix} ${stat.label}`}>
                   {stat.number}{stat.suffix}
                 </div>
                 <div className="text-sm md:text-base text-muted-foreground font-medium">
@@ -361,6 +370,7 @@ export function About() {
                 size="lg" 
                 variant="secondary"
                 className="bg-white text-primary hover:bg-white/90 px-8 py-4 text-lg font-semibold shadow-soft hover:shadow-medium transition-all duration-300"
+                aria-label="Solicitar orçamento de móveis planejados"
               >
                 Solicitar Orçamento
               </Button>
@@ -368,6 +378,7 @@ export function About() {
                 size="lg" 
                 variant="outline"
                 className="border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-lg font-semibold transition-all duration-300"
+                aria-label="Ver portfólio de projetos realizados"
               >
                 Ver Portfólio
               </Button>

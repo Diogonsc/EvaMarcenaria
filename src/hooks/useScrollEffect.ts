@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
+import { useThrottledCallback } from './useThrottle'
 
 export function useScrollEffect(threshold: number = 10) {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -14,6 +15,9 @@ export function useScrollEffect(threshold: number = 10) {
     setIsScrolled(newIsScrolled)
   }, [threshold])
 
+  // Usar throttle para melhorar performance
+  const throttledCheckScroll = useThrottledCallback(checkScroll, 16) // ~60fps
+
   // Verificar posição inicial após a montagem
   useEffect(() => {
     // Aguardar um frame para garantir que o DOM esteja pronto
@@ -22,13 +26,13 @@ export function useScrollEffect(threshold: number = 10) {
 
   // Listener para mudanças de scroll
   useEffect(() => {
-    // Adicionar listener
-    window.addEventListener('scroll', checkScroll, { passive: true })
+    // Adicionar listener com throttle
+    window.addEventListener('scroll', throttledCheckScroll, { passive: true })
     
     return () => {
-      window.removeEventListener('scroll', checkScroll)
+      window.removeEventListener('scroll', throttledCheckScroll)
     }
-  }, [checkScroll])
+  }, [throttledCheckScroll])
 
   return isScrolled
 }
